@@ -6,5 +6,20 @@
   http://www.springframework.org/schema/context/ 
   http://www.springframework.org/schema/context/spring-context.xsd">
   	<bean id="emp" class="com.chainsys.projectA.beans.Employee"></bean>
-  	<bean id="c1" class="com.chainsys.projectA.beans.Customer"></bean>
+  	<bean id="c1" class="com.chainsys.projectA.beans.Customer" lazy-init="true"></bean>
+  	<bean id="act" class="com.chainsys.projectA.beans.Actor" scope="prototype"></bean>
+  	<bean id="film" class="com.chainsys.projectA.beans.Movie">
+  	<constructor-arg type="java.lang.String" value="kgf" /> 
+  	<constructor-arg type="java.lang.String" value="jerusha" /> 
+  	
+  	</bean>
+  	<bean id="sb1" class="com.chainsys.projectA.beans.ScoreBoard" factory-method="createObject" scope="prototype" />
+  	<bean id="sb2" class="com.chainsys.projectA.beans.ScoreBoard" factory-method="createObject" scope="prototype">
+  	<constructor-arg type="int" value="360" /> 
+  	</bean>
+  	
+  	<bean id="cal" class="com.chainsys.projectA.beans.Calendar" factory-method="createCalendar" factory-bean="calf"></bean>
+  	<bean id="calf" class="com.chainsys.projectA.beans.CalendarFactory"></bean>
+  	<bean id="app" class="com.chainsys.projectA.beans.Appointments" factory-method="createAppointment" factory-bean="calf"></bean>
+  	
   </beans>

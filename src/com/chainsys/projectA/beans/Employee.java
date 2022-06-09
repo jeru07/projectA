@@ -22,4 +22,8 @@ public class Employee
 		System.out.println(this.getId());
 		System.out.println(this.getName());
 	}
+	 public Employee()
+     {
+   	  System.out.println("employee object created "+hashCode());
+     }
 }
