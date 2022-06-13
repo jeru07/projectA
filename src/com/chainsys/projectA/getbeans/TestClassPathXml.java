@@ -1,7 +1,5 @@
 package com.chainsys.projectA.getbeans;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.chainsys.projectA.beans.Actor;
 import com.chainsys.projectA.beans.Calendar;
@@ -9,7 +7,6 @@ import com.chainsys.projectA.beans.Customer;
 import com.chainsys.projectA.beans.Employee;
 import com.chainsys.projectA.beans.Lunch;
 import com.chainsys.projectA.beans.ScoreBoard;
-
 import org.springframework.context.ApplicationContext; //parent
 import org.springframework.context.support.ClassPathXmlApplicationContext; //child
 
@@ -102,6 +99,12 @@ public class TestClassPathXml {
 		 System.out.println("------");
 		 chlunch.serve();
 		  
+	  }
+	  public static void testSetterDi()
+	  {
+		  ApplicationContext ac1=new ClassPathXmlApplicationContext("beans.xml");
+		  Employee emp=ac1.getBean("emp2",Employee.class);
+		  emp.print();
 	  }
 	  
 }
